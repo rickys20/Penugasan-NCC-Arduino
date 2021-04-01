@@ -29,8 +29,6 @@ lcd.print(distanceCm);
 lcd.print(" cm ");
 delay(10);
 
-
-delay(10);
 ;
   {
 	if (distanceCm <= 100)
