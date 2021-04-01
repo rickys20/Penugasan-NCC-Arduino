@@ -1,6 +1,6 @@
-# Alat Deteksi Kedalaman Air
+# Alat Deteksi Jarak
 
-Alat Deteksi Kedalaman air adalah salah satu alat yang dapat mendeteksi serta memberi peringatan kepada pengguna jika kedalaman air tersebut sudah mencapai batas tampung air. Saya memilih alat pendeteksi air karena alat ini menggunakan sensor jarak dalam penggunaan arduino. Berikut mengenai sistem kerja pada Alat Deteksi
+Alat Deteksi Kedalaman air adalah salah satu alat yang dapat mendeteksi serta memberi peringatan kepada pengguna jika kedalaman air tersebut sudah mencapai batas tampung air.Pada kasus ini saya mengambil objek yaitu busa yang jika semakin bertambah tinggi air maka busa tersebut mendekati sensor jarak. Saya memilih alat pendeteksi air karena alat ini menggunakan sensor jarak dalam penggunaan arduino. Berikut mengenai sistem kerja pada Alat Deteksi
 ![image](https://user-images.githubusercontent.com/73892020/113332676-b1380180-934b-11eb-91a7-0d1c4f910ab5.png)
 
 Pada gambar tersebut prinsip dari sensor jarak yaitu memantulkan gelombang dan menghitung waktu gelombang tersebut kembali. Pada sistem penggunaan dari rangkain tersebut seperti berikut:
@@ -12,7 +12,35 @@ Pada gambar tersebut prinsip dari sensor jarak yaitu memantulkan gelombang dan m
 
 # Implementasi
 
-Pada implementasi diperlukan `#include <LiquidCrystal.h>` untuk library dari lcd.
+Pada implementasi diperlukan `#include <LiquidCrystal.h>` untuk library dari lcd. Pada implementasi terdapat `LiquidCrystal lcd(12, 11, 5, 4, 3, 2);` sebagai inisialisasi pada library. Pada deklarasi awal seperti berikut:
+```
+int trigPin = 10;
+int echoPin = 9;
+int led =13;
+long duration;
+int distanceCm, distanceInch;
+```
+
+Pada deklarasi tersebut terdapat `trigPin` dan `echoPin` yang tersambung pada sensor ultrasonic.Pada dungsi dari sensor ultrasonic seperti berikut:
+1. VCC = 5V Power Supply. Pin sumber tegangan positif sensor.
+2. Trig = Trigger/Penyulut. Pin ini yang digunakan untuk membangkitkan sinyal ultrasonik.
+3. Echo = Receive/Indikator. Pin ini yang digunakan untuk mendeteksi sinyal pantulan ultrasonik.
+4. GND = Ground/0V Power Supply. Pin sumber tegangan negatif sensor.
+
+Untuk setup seperti berikut:
+```
+void setup() {
+  // set up the LCD's number of columns and rows:
+  lcd.begin(16, 2);
+  // Print a message to the LCD.
+  // lcd.print("hello, world!");
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(led, OUTPUT);
+}
+```
+Pada setup `trigPin` dan `led` berperan sebagai output dan `echoPin` berperan sebagai input.
+
 
 
 ## Tugas 3
