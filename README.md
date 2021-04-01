@@ -41,9 +41,39 @@ void setup() {
 ```
 Pada setup `trigPin` dan `led` berperan sebagai output dan `echoPin` berperan sebagai input.
 
+Pada loop kita mengambil data cm dan inch seperti berikut:
+```
+  duration = pulseIn(echoPin, HIGH);
+  distanceCm= (duration/2) / 29.1;
+  distanceInch = (duration/2) / 74;
+```
 
+Pada lcd baris pertama digunakan penghitungan jarak menggunakan cm:
+```
+  lcd.setCursor(0,0);
+  lcd.print("Jarak: ");
+  lcd.print(distanceCm);
+  lcd.print(" cm ");
+``` 
+Pada tampilan lcd baris kedua menggunakan `if else` yaitu kasus jika jarak objek diatas 100 cm dan dibawah 100 cm:
+```
+   if (distanceCm <= 100)
+	{
+	  digitalWrite(led, HIGH);
+      lcd.setCursor(0,1);
+	  lcd.print("FULL!!");
+      lcd.print("Turn Off!!!");
+	}
+    else{
+      digitalWrite (led, LOW);
+      lcd.setCursor(0,1);
+	  lcd.print("Jarak: ");
+      lcd.print(distanceInch);
+      lcd.print(" Inch ");
+    }
+```
 
 ## Tugas 3
 
-
+Berikut link implementasi langsung pada tinkercad
 LINK TINKERCAD : https://www.tinkercad.com/things/7KETNHXUrDL-tugas-3-ncc
