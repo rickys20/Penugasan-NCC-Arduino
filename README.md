@@ -76,4 +76,4 @@ Pada tampilan lcd baris kedua menggunakan `if else` yaitu kasus jika jarak objek
 ## Tugas 3
 
 Berikut link implementasi langsung pada tinkercad
-LINK TINKERCAD : https://www.tinkercad.com/things/7KETNHXUrDL-tugas-3-ncc
+LINK TINKERCAD : https://www.tinkercad.com/things/7KETNHXUrDL-tugas-3-ncc/editel?sharecode=UCTcf2HOnmFSSYCF4TZU2Ai8-0FiqF9t-A80HJDL1DE
