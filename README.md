@@ -9,6 +9,7 @@ Pada gambar tersebut prinsip dari sensor jarak yaitu memantulkan gelombang dan m
 2. Pada kasus jarak diatas 100 cm maka LCD akan melakukan print pada `lcd.setCursor(0,0);`berisi data berupa jarak dalam cm, dan pada `lcd.setCursor(0,1)`; berisi data jarak inch
 3. Pada Kasus jarak objek dibawah 100 cm `lcd.setCursor(0,0);` akan tetap memeberi keterangan jarak, dan pada `lcd.setCursor(0,1);`akan memberi peringatan terhadap pengguna untuk mematikan seperti kran air, dan pompa air.
 4. Pada kasus jarak objek dibawah 100 cm juga akan menghidupkan led merah sebagai penanda.Jika jarak diatas 100 cm maka led tersebut akan mati.
+5. Pada kasus di luar range, maka LCD akan memncetak out of range
 
 # Implementasi
 
