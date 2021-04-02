@@ -30,28 +30,50 @@ void loop() {
   duration = pulseIn(echoPin, HIGH);
   distanceCm= (duration/2) / 29.1;
   distanceInch = (duration/2) / 74;
-
-  lcd.setCursor(0,0);
-  lcd.print("Jarak: ");
-  lcd.print(distanceCm);
-  lcd.print(" cm ");
-  delay(10);
+  // delay 500 microseconds
+  delay(500);
 
   {
+    
 	if (distanceCm <= 100)
 	{
+     
+      lcd.clear();  
+      lcd.setCursor(0,0);
+  	  lcd.print("Jarak: ");
+      lcd.print(distanceCm);
+      lcd.print(" cm ");
 	  digitalWrite(led, HIGH);
+      
       lcd.setCursor(0,1);
-	  lcd.print("FULL!!");
-      lcd.print("Turn Off!!!");
+      lcd.print("Full!Turn Off!!!");
 	}
-    else{
-      digitalWrite (led, LOW);
-      lcd.setCursor(0,1);
-	  lcd.print("Jarak: ");
-      lcd.print(distanceInch);
-      lcd.print(" Inch ");
-    }
+    else
+    {
+      
+      if (distanceCm >= 335)
+      {
+        lcd.clear();
+        lcd.setCursor(0,0);
+        lcd.print("Out Of Range");
+        lcd.setCursor(0,1);
+        lcd.print("Error");
+       }
+       else
+       { 
+        lcd.clear();
+        lcd.setCursor(0,0);
+  	    lcd.print("Jarak: ");
+        lcd.print(distanceCm);
+        lcd.print(" cm ");
+    
+        digitalWrite (led, LOW);
+        lcd.setCursor(0,1);
+	    lcd.print("Jarak: ");
+        lcd.print(distanceInch);
+        lcd.print(" Inch ");
+       }
+     }
    }
 }
  
