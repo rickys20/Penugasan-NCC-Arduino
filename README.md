@@ -55,22 +55,47 @@ Pada lcd baris pertama digunakan penghitungan jarak menggunakan cm:
   lcd.print(distanceCm);
   lcd.print(" cm ");
 ``` 
-Pada tampilan lcd baris kedua menggunakan `if else` yaitu kasus jika jarak objek diatas 100 cm dan dibawah 100 cm:
+Pada tampilan lcd baris kedua menggunakan `if else` yaitu kasus jika jarak objek diatas 100 cm dan dibawah 100 cm. Terdapat juga case lcd.print diluar range dan dalam range lebih dari 100 cm:
 ```
    if (distanceCm <= 100)
 	{
+     
+      lcd.clear();  
+      lcd.setCursor(0,0);
+  	  lcd.print("Jarak: ");
+      lcd.print(distanceCm);
+      lcd.print(" cm ");
 	  digitalWrite(led, HIGH);
+      
       lcd.setCursor(0,1);
-	  lcd.print("FULL!!");
-      lcd.print("Turn Off!!!");
+      lcd.print("Full!Turn Off!!!");
 	}
-    else{
-      digitalWrite (led, LOW);
-      lcd.setCursor(0,1);
-	  lcd.print("Jarak: ");
-      lcd.print(distanceInch);
-      lcd.print(" Inch ");
-    }
+    else
+    {
+      
+      if (distanceCm >= 335)
+      {
+        lcd.clear();
+        lcd.setCursor(0,0);
+        lcd.print("Out Of Range");
+        lcd.setCursor(0,1);
+        lcd.print("Error");
+       }
+       else
+       { 
+        lcd.clear();
+        lcd.setCursor(0,0);
+  	    lcd.print("Jarak: ");
+        lcd.print(distanceCm);
+        lcd.print(" cm ");
+    
+        digitalWrite (led, LOW);
+        lcd.setCursor(0,1);
+	    lcd.print("Jarak: ");
+        lcd.print(distanceInch);
+        lcd.print(" Inch ");
+       }
+     }
 ```
 
 ## Tugas 3
